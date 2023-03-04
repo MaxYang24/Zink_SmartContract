@@ -1,0 +1,1047 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "contract ERC20",
+				"name": "zink_address",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "fee_",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "order_id_chain",
+				"type": "uint256"
+			}
+		],
+		"name": "AcceptOrder",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "order_id_chain",
+				"type": "uint256"
+			}
+		],
+		"name": "ArbitrateOrder",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "order_id_chain",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "result",
+				"type": "string"
+			}
+		],
+		"name": "ArbitrateResult",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "order_id_chain",
+				"type": "uint256"
+			}
+		],
+		"name": "CancleOrder",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "order_id_chain",
+				"type": "uint256"
+			}
+		],
+		"name": "CreateOrder",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "act",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "order_id_chain",
+				"type": "uint256"
+			}
+		],
+		"name": "genActionHash",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "ret",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "isSupport",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "order_id_chain",
+				"type": "uint256"
+			}
+		],
+		"name": "genArbitrateHash",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "ret",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "order_id_chain",
+				"type": "uint256"
+			}
+		],
+		"name": "genCreatOrderHash",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "ret",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "grantRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "question_id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "student_address",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "question_url",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "CID",
+						"type": "string"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "question_hash",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "enum ZINKallinone.ORDER_STATUS",
+						"name": "order_status",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "order_id_chain",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "bid_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "teacher_address",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "limit_time",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "start_time",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct ZINKallinone.orderInfo",
+				"name": "inputInfo",
+				"type": "tuple"
+			}
+		],
+		"name": "prepareOrder",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "order_id_onchain",
+				"type": "uint256"
+			}
+		],
+		"name": "PrepareOrder",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "renounceRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "revokeAddressAdmin",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "revokeRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "previousAdminRole",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "newAdminRole",
+				"type": "bytes32"
+			}
+		],
+		"name": "RoleAdminChanged",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
+		],
+		"name": "RoleGranted",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
+		],
+		"name": "RoleRevoked",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "order_id_chain",
+				"type": "uint256"
+			}
+		],
+		"name": "SubmitOrder",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "revokeAddressAdminEvent",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "setAddressAdmin",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "setAddressAdminEvent",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "a",
+				"type": "address"
+			}
+		],
+		"name": "setAnserNFTAddress",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"name": "setFee",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "newFeeRatio",
+				"type": "uint256"
+			}
+		],
+		"name": "setFeeRation",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "order_id_chain",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "unlockAddress",
+				"type": "address"
+			}
+		],
+		"name": "unlockAnswer",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "order_id_chain",
+				"type": "uint256"
+			}
+		],
+		"name": "ZINKAdminDelegateApplyArbitratingOrder",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "order_id_chain",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "studentSig",
+				"type": "bytes"
+			}
+		],
+		"name": "ZINKAdminDelegateCancelOrder",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "order_id_chain",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "studentSig",
+				"type": "bytes"
+			},
+			{
+				"internalType": "bytes",
+				"name": "teacherSig",
+				"type": "bytes"
+			}
+		],
+		"name": "ZINKAdminDelegateCreateOrder",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "order_id_chain",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "studentSig",
+				"type": "bytes"
+			}
+		],
+		"name": "ZINKAdminDelegateStudentAcceptOrder",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "order_id_chain",
+				"type": "uint256"
+			},
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "v01isSupport",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "v02isSupport",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "v03isSupport",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "v01",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "v02",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "v03",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "v01sig",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "v02sig",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "v03sig",
+						"type": "bytes"
+					}
+				],
+				"internalType": "struct ZINKallinone.arbitratingInfo",
+				"name": "info",
+				"type": "tuple"
+			}
+		],
+		"name": "ZINKAdminDelegateSubmitFinalArbitrationResult",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "order_id_chain",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "teacherSig",
+				"type": "bytes"
+			},
+			{
+				"internalType": "string",
+				"name": "newCID",
+				"type": "string"
+			}
+		],
+		"name": "ZINKAdminDelegateTeacherSubimitOrder",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "ADMIN_ROLE",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "AnswerNFT",
+		"outputs": [
+			{
+				"internalType": "contract IZINKAnswerNFT",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "DEFAULT_ADMIN_ROLE",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "FeeRatio",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}
+		],
+		"name": "getRoleAdmin",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "hasRole",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "orderNum",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "orders",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "question_id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "student_address",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "question_url",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "CID",
+				"type": "string"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "question_hash",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "enum ZINKallinone.ORDER_STATUS",
+				"name": "order_status",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint256",
+				"name": "order_id_chain",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "bid_amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "teacher_address",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "limit_time",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "start_time",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "OWNER_ROLE",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "hash",
+				"type": "bytes32"
+			}
+		],
+		"name": "prefixedHash",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "hash",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "bytes",
+				"name": "sig",
+				"type": "bytes"
+			}
+		],
+		"name": "recover",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "pure",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "STUDENT_ROLE",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "supperAdmin",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes4",
+				"name": "interfaceId",
+				"type": "bytes4"
+			}
+		],
+		"name": "supportsInterface",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "TEACHER_ROLE",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "unlockAnswerRecord",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "order_id_chain",
+				"type": "uint256"
+			}
+		],
+		"name": "viewOrder",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "order_id_chain_",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "studentAddr",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "teacherAddr",
+				"type": "address"
+			},
+			{
+				"internalType": "enum ZINKallinone.ORDER_STATUS",
+				"name": "order_status",
+				"type": "uint8"
+			},
+			{
+				"internalType": "string",
+				"name": "CID",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "question_url",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "question_id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "question_hash",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "uint256",
+				"name": "bid_amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "limit_time",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "start_time",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "ZINK",
+		"outputs": [
+			{
+				"internalType": "contract ERC20",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]

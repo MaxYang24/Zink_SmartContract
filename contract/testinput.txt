@@ -1,0 +1,15 @@
+    struct orderInfo {
+        uint question_id;
+        address student_address;
+        string question_url;
+        string CID;
+        bytes32 question_hash;
+        ORDER_STATUS order_status;
+        uint order_id_chain;
+        uint bid_amount;
+        address teacher_address;
+        uint limit_time; // second;
+        uint start_time;
+    }
+
+[1, "0x1EB91dc729092d2b8382A8A69b12b58B15ec7338", "https://www.google.com", "https://www.google.com", "0x1111111111111111111111111111111111111111111111111111111111111111", 0, 0, 1000, "0x1EB91dc729092d2b8382A8A69b12b58B15ec7338", 12345678, 0]
