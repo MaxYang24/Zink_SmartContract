@@ -1,4 +1,3 @@
-zinkcoin = "0xdeCFc22DABA063810546D0016C4a77C27F3E927E"
-zinkallinone = "0x6F920A1bFA508b621bdA62C4C4b86D58D8421C3a"
-zinkanswernft = "0xdE2DFC3f12c69Eb7897AB82dA8fA87Ca139800a5"
-
+zinkcoin = "0xafc26ad91a100b3e012a0f6cfebe34aaf2424c9b"
+zinkallinone = "0x9a9dde43fef2fa8e739289433e0ae0155d1adcfa"
+zinkanswernft = "0x0baf6c765e1bbe935f396fb81af65107a1d36ca4"

@@ -3,6 +3,7 @@ import time
 import binascii
 from web3 import Web3
 
+
 def q(id):
     url = "http://localhost:6666/viewOrder"
     response = requests.post(url, json={"order_id_chain": id})
@@ -19,7 +20,7 @@ response = requests.post(url, json={
     "question_hash": "0x" + "3" * 32,
     "bid_amount": "1000",
     "limit_time": "23333"
-    })
+})
 assert response.status_code == 200
 ret = response.json()
 txhash = ret["txhash"]
@@ -41,7 +42,8 @@ print(ret)
 time.sleep(10)
 
 url = "http://localhost:6666/ZINKControlledAccoutDelegateTeacherSubimitOrder"
-response = requests.post(url, json={"order_id_chain": order_id_onchain, "newCID": "www.nvdia.com"})
+response = requests.post(
+    url, json={"order_id_chain": order_id_onchain, "newCID": "www.nvdia.com"})
 assert response.status_code == 200
 ret = response.json()
 print(ret)
