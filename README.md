@@ -49,5 +49,5 @@ just run python ./zinkchainserver/src/main.py, it will startup a server for test
   - test10 - Request order info and status by order_id
   - test11 - Create order -> submit answer -> finish order
   - test12 - Create order -> cancel order -> finish order
-  - test11 - Create order -> submit answer -> arbitration -> finish order
+  - test13 - Create order -> submit answer -> arbitration -> finish order
 
