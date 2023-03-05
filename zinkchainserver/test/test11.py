@@ -24,6 +24,7 @@ response = requests.post(url, json={
 assert response.status_code == 200
 ret = response.json()
 txhash = ret["txhash"]
+
 time.sleep(10)
 
 url = "http://localhost:6666/queryTxPrepareOrderId"
@@ -47,7 +48,6 @@ response = requests.post(
 assert response.status_code == 200
 ret = response.json()
 print(ret)
-
 
 time.sleep(10)
 
