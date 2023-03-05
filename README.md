@@ -31,7 +31,7 @@ fastapi, pydantic, web3, uvicorn, binascii, requests
       - ZINKAdminDelegateCancelOrder: admin cancels order
       - ZINKAdminDelegateApplyArbitratingOrder: change order status to arbitrating
       - ZINKAdminDelegateSubmitFinalArbitrationResult: final voting with selected reviewers signing and voting (check if supportnum >=2)
-1. ZINKAnswerNFT.sol: in charge of all NFT stuff
+2. ZINKAnswerNFT.sol: in charge of all NFT stuff
   - Functions:
     - supportsInterface
     - setAddressAdmin: sets admin addr
