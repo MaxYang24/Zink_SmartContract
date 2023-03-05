@@ -12,6 +12,7 @@ def q(id):
     return ret
 
 
+# Prepare for creating order onchain
 url = "http://localhost:6666/ZINKControlledAccoutPrepareOrder"
 response = requests.post(url, json={
     "question_id": "12344321",
@@ -27,6 +28,7 @@ txhash = ret["txhash"]
 
 time.sleep(10)
 
+# Get order_id
 url = "http://localhost:6666/queryTxPrepareOrderId"
 response = requests.post(url, json={"txhash": txhash})
 assert response.status_code == 200
@@ -34,6 +36,7 @@ ret = response.json()
 order_id_onchain = ret["order_id_onchain"]
 print(order_id_onchain)
 
+# Officially create order
 url = "http://localhost:6666/ZINKControlledAccoutCreateOrder"
 response = requests.post(url, json={"order_id_chain": order_id_onchain})
 assert response.status_code == 200
@@ -42,6 +45,7 @@ print(ret)
 
 time.sleep(10)
 
+# Teacher submit answer
 url = "http://localhost:6666/ZINKControlledAccoutDelegateTeacherSubimitOrder"
 response = requests.post(
     url, json={"order_id_chain": order_id_onchain, "newCID": "www.nvdia.com"})
@@ -51,6 +55,7 @@ print(ret)
 
 time.sleep(10)
 
+# Student accept answer
 url = "http://localhost:6666/ZINKControlledAccoutStudentAcceptOrder"
 response = requests.post(url, json={"order_id_chain": order_id_onchain})
 assert response.status_code == 200

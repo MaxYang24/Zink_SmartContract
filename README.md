@@ -44,4 +44,7 @@ fastapi, pydantic, web3, uvicorn, binascii, requests
 just run python ./zinkchainserver/src/main.py, it will startup a server for testing purpose
 
 ### Tests: the tests in ./zinkchainserver/test/ test for main functions:
-  - test09 - checks if hash is working
+  - test10 - Request order info and status by order_id
+  - test11 - Create order -> submit answer -> finish order
+  - test12 - Create order -> cancel order -> finish order
+  - test11 - Create order -> submit answer -> arbitration -> finish order
