@@ -43,8 +43,11 @@ fastapi, pydantic, web3, uvicorn, binascii, requests
 ### How to use smart contracts?
 just run python ./zinkchainserver/src/main.py, it will startup a server for testing purpose
 
+## When the server is running, open a side terminal tab and run the following tests to check if the contracts are behaving correctly
+
 ### Tests: the tests in ./zinkchainserver/test/ test for main functions:
   - test10 - Request order info and status by order_id
   - test11 - Create order -> submit answer -> finish order
   - test12 - Create order -> cancel order -> finish order
   - test11 - Create order -> submit answer -> arbitration -> finish order
+
