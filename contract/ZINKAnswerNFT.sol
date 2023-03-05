@@ -30,6 +30,7 @@ contract ZINKAnswerNFT is ERC721, AccessControl {
 
     event setAddressAdminEvent(address _address);
 
+    // sets admin addr
     function setAddressAdmin(address _address) public {
         // require(hasRole(OWNER_ROLE, msg.sender), "Caller is not an owner");
         require(hasRole(OWNER_ROLE, msg.sender) == true, "not owner!");
@@ -39,6 +40,7 @@ contract ZINKAnswerNFT is ERC721, AccessControl {
 
     event revokeAddressAdminEvent(address _address);
 
+    // revokes addmin
     function revokeAddressAdmin(address _address) public {
         // require(hasRole(OWNER_ROLE, msg.sender), "Caller is not an owner");
         require(hasRole(OWNER_ROLE, msg.sender) == true, "not owner!");
@@ -46,10 +48,12 @@ contract ZINKAnswerNFT is ERC721, AccessControl {
         emit revokeAddressAdminEvent(_address);
     }
 
+    // checks if owner
     function checkOriginIsAdmin() internal {
         require(hasRole(ADMIN_ROLE, tx.origin) == true, "not owner!");
     }
 
+    // mint answer NFT
     function mintAnswerNFT(
         address to,
         uint256 orderId,
@@ -61,6 +65,7 @@ contract ZINKAnswerNFT is ERC721, AccessControl {
         answerCID[orderId] = CID;
     }
 
+    // sets and changes answer NFT CID
     function changeAnswerCID(uint256 orderId, string memory CID) public {
         checkOriginIsAdmin();
         answerCID[orderId] = CID;
