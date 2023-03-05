@@ -18,6 +18,7 @@ contract ZINKallinone is AccessControl, ReentrancyGuard {
     IZINKAnswerNFT public AnswerNFT;
     mapping(uint256 => mapping(address => uint256)) public unlockAnswerRecord;
 
+    // unlocks previous answered questions
     function unlockAnswer(uint256 order_id_chain, address unlockAddress)
         public
     {
@@ -66,6 +67,7 @@ contract ZINKallinone is AccessControl, ReentrancyGuard {
         FeeRatio = fee_;
     }
 
+    // sets existing answer NFT addr
     function setAnserNFTAddress(address a) public {
         require(hasRole(OWNER_ROLE, msg.sender) == true, "not owner!");
         AnswerNFT = IZINKAnswerNFT(a);
@@ -73,6 +75,7 @@ contract ZINKallinone is AccessControl, ReentrancyGuard {
 
     event setFee(uint256 _value);
 
+    // sets handling fee rate
     function setFeeRation(uint256 newFeeRatio) public {
         require(hasRole(OWNER_ROLE, msg.sender) == true, "not owner!");
         FeeRatio = newFeeRatio;
@@ -81,6 +84,7 @@ contract ZINKallinone is AccessControl, ReentrancyGuard {
 
     event setAddressAdminEvent(address _address);
 
+    // sets admin addr
     function setAddressAdmin(address _address) public {
         // require(hasRole(OWNER_ROLE, msg.sender), "Caller is not an owner");
         require(hasRole(OWNER_ROLE, msg.sender) == true, "not owner!");
@@ -90,6 +94,7 @@ contract ZINKallinone is AccessControl, ReentrancyGuard {
 
     event revokeAddressAdminEvent(address _address);
 
+    // revokes addmin
     function revokeAddressAdmin(address _address) public {
         // require(hasRole(OWNER_ROLE, msg.sender), "Caller is not an owner");
         require(hasRole(OWNER_ROLE, msg.sender) == true, "not owner!");
@@ -122,10 +127,12 @@ contract ZINKallinone is AccessControl, ReentrancyGuard {
     mapping(uint256 => orderInfo) public orders;
     uint256 public orderNum;
 
+    // checks if the caller is admin
     function requireAdminAccess() internal {
         require(hasRole(ADMIN_ROLE, msg.sender), "Caller is not an admin");
     }
 
+    // input order information
     function viewOrder(uint256 order_id_chain)
         public
         view
@@ -159,6 +166,7 @@ contract ZINKallinone is AccessControl, ReentrancyGuard {
 
     event PrepareOrder(uint256 order_id_onchain);
 
+    // sets initial order instance vars
     function prepareOrder(orderInfo memory inputInfo) public nonReentrant {
         requireAdminAccess();
         orderInfo storage this_order = orders[orderNum];
@@ -176,6 +184,7 @@ contract ZINKallinone is AccessControl, ReentrancyGuard {
         orderNum += 1;
     }
 
+    // generates action hash
     function genActionHash(string memory act, uint256 order_id_chain)
         public
         returns (bytes32 ret)
@@ -183,6 +192,7 @@ contract ZINKallinone is AccessControl, ReentrancyGuard {
         ret = keccak256(abi.encodePacked(act, order_id_chain));
     }
 
+    // generates arbitration hash
     function genArbitrateHash(uint256 isSupport, uint256 order_id_chain)
         public
         returns (bytes32 ret)
@@ -190,6 +200,7 @@ contract ZINKallinone is AccessControl, ReentrancyGuard {
         ret = keccak256(abi.encodePacked(isSupport, order_id_chain));
     }
 
+    // generates order creation hash
     function genCreatOrderHash(uint256 order_id_chain)
         public
         returns (bytes32 ret)
@@ -293,6 +304,7 @@ contract ZINKallinone is AccessControl, ReentrancyGuard {
     event SubmitOrder(uint256 order_id_chain);
     event ArbitrateOrder(uint256 order_id_chain);
 
+    // teacher submits answer
     function ZINKAdminDelegateTeacherSubimitOrder(
         uint256 order_id_chain,
         bytes memory teacherSig,
@@ -327,6 +339,7 @@ contract ZINKallinone is AccessControl, ReentrancyGuard {
 
     event AcceptOrder(uint256 order_id_chain);
 
+    // student accepts answer (triggers payment and nft minting)
     function ZINKAdminDelegateStudentAcceptOrder(
         uint256 order_id_chain,
         bytes memory studentSig
@@ -368,6 +381,7 @@ contract ZINKallinone is AccessControl, ReentrancyGuard {
 
     event CancleOrder(uint256 order_id_chain);
 
+    // admin cancels order
     function ZINKAdminDelegateCancelOrder(
         uint256 order_id_chain,
         bytes memory studentSig
@@ -399,6 +413,7 @@ contract ZINKallinone is AccessControl, ReentrancyGuard {
         emit CancleOrder(order_id_chain);
     }
 
+    // change order status to arbitrating
     function ZINKAdminDelegateApplyArbitratingOrder(uint256 order_id_chain)
         public
         nonReentrant
@@ -428,6 +443,7 @@ contract ZINKallinone is AccessControl, ReentrancyGuard {
 
     event ArbitrateResult(uint256 order_id_chain, string result);
 
+    // final voting with selected reviewers signing and voting (check if supportnum >=2)
     function ZINKAdminDelegateSubmitFinalArbitrationResult(
         uint256 order_id_chain,
         arbitratingInfo memory info
